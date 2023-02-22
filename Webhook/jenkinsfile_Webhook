@@ -14,5 +14,32 @@ pipeline {
                 sh 'python3  Webhook/main.py'
             }
         }
+        stage('stage3') {
+            steps {
+                sh 'echo So Good'
+            }
+        }
+        stage('stage4') {
+            steps {
+                sh 'echo So Very Good'
+            }
+        }
+    }
+    post{
+      always {
+         echo 'the end'
+      }
+      success {
+         echo 'Success'
+      }
+      failure {
+         echo 'failure'
+      }
+      unstable {
+         echo 'unstable'
+      }
+      changed {
+         echo 'chaged'
+      }
     }
 }
